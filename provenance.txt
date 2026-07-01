@@ -1,0 +1,120 @@
+========================================
+MRV DESK POC — PROVENANCE RECORD
+========================================
+
+--- PROJECT / SITE ---
+Earth Engine project ID: mrv-poc-500917
+Study site: Arecanut agroforestry parcel, Chikkamagaluru (Malnad), Karnataka, India
+Polygon area: 1.27 ha (representative agroforestry parcel)
+Polygon coordinates (GeoJSON, [lng, lat], closed ring):
+  [75.7583337, 13.4004903],
+  [75.7581502, 13.3995258],
+  [75.7593232, 13.3995341],
+  [75.7594960, 13.4003524],
+  [75.7583337, 13.4004903]
+
+--- SATELLITE / RASTER DATA SOURCES (Earth Engine asset IDs) ---
+Optical imagery + NDVI:
+  Asset: COPERNICUS/S2_SR_HARMONIZED  (Sentinel-2 L2A surface reflectance)
+  Date range queried: 2024-11-01 to 2025-03-31 (dry season, low cloud)
+  Cloud filter: CLOUDY_PIXEL_PERCENTAGE < 20
+  NDVI bands: B8 (NIR), B4 (Red); NDVI = (B8 - B4)/(B8 + B4)
+  Resolution: 10 m
+  Provider: ESA Copernicus (free, open)
+
+Baseline soil organic carbon:
+  Asset: projects/soilgrids-isric/soc_mean, band soc_0-5cm_mean
+  Provider: ISRIC SoilGrids
+  Native unit: dg/kg (decigrams per kg) — divide by 10 for g/kg
+  Measured value: 635 dg/kg = 63.5 g/kg = 6.35% (0-5cm layer)
+  NOTE: this is a CONCENTRATION (0-5cm), NOT a stock; stock needs bulk density x depth
+  NOTE: SoilGrids is a DESK-POC STAND-IN for physical soil cores; not field-measured
+
+Terrain (for stratification):
+  Asset: USGS/SRTMGL1_003 (SRTM 30 m DEM); slope via ee.Terrain.slope
+  Provider: USGS/NASA
+
+
+
+Land cover (for stratification):
+  Asset: ESA/WorldCover/v200/2021 (10 m global land cover)
+  Provider: ESA WorldCover
+
+
+Climate forcing (SOC model inputs):
+  Rainfall: UCSB-CHG/CHIRPS/DAILY, summed over 2024-01-01 to 2024-12-31
+    sampled at 5.5 km over a 6 km buffer around plot centroid
+    Measured value: 1879 mm
+  Temperature: ECMWF/ERA5_LAND/MONTHLY_AGGR, band temperature_2m, mean over 2024
+    Measured value: 294.7 K = 21.6 C
+  Providers: UCSB Climate Hazards Group (CHIRPS), ECMWF (ERA5)
+
+--- AGB EQUATION (Areca catechu) ---
+Equation used (combined, best fit): AGB(kg/plant) = 0.03883 * H * D^1.2 ; R^2 = 0.96
+  H = palm height (m), D = stem diameter (cm)
+Alternative forms from same source:
+  Height-only:   AGB = 0.816 * H^1.42 ; R^2 = 0.89
+  Diameter-only: AGB = 0.0689 * D^2.59 ; R^2 = 0.74
+SOURCE: Prayogo, C. et al. (2018) "Allometric Equation for Pinang (Areca catechu)
+  Biomass and C Stocks." AGRIVITA Journal of Agricultural Science, 40(3): 381-389.
+  DOI: 10.17503/agrivita.v40i3.1124
+
+--- CARBON FRACTION ---
+Value: 0.47 (fraction of biomass that is carbon)
+SOURCE: IPCC 2006 Guidelines for National GHG Inventories, Vol.4 (AFOLU) default
+NOTE: some palm-specific studies use 0.50; 0.47 is the conservative IPCC choice.
+
+--- CO2e CONVERSION ---
+Value: 3.67 (= 44/12, ratio of molecular weights CO2:C). Universal constant.
+
+--- BGB (belowground) — PROVISIONAL, FLAGGED ---
+Root-to-shoot ratio used: 0.24 (BGB = AGB * 0.24)
+SOURCE: IPCC 2006 GL Vol.4 tropical default (TREE-derived)
+
+--- SOC CHANGE (Day 4) — PROVISIONAL, FLAGGED ---
+Value used: 0.3 tC/ha/yr = 1.101 tCO2e/ha/yr (conservative literature-based)
+Literature range for agroforestry SOC accrual: ~0.2-0.5 tC/ha/yr (conservative end used)
+FLAGGED: NOT modeled from this plot; replace with field-calibrated RothC before
+  any credit issuance. A from-scratch compact RothC was attempted and rejected as
+  unreliable for desk use; conservative literature value used instead.
+--- INTEGRITY / AUDIT ---
+Method: SHA-256 hash chain over daily records (each record hashes prev record's hash)
+
+--- DEDUCTIONS (credit calculator) ---
+Leakage: 7% (methodology-defined placeholder; set per VM0042/CCTS when chosen)
+Uncertainty buffer: 20% baseline (varied 10-30% in sensitivity analysis)
+
+--- FINAL POC RESULTS ---
+Plot area: 1.27 ha | Mean NDVI: 0.873
+AGB+BGB annual increment: 0.084 tCO2e
+SOC change: 1.101 tCO2e/ha/yr (conservative)
+Credit breakdown: gross 1.478 | after-leakage 1.374 | issued 1.099 | buffer 0.275
+
+--- DESK-POC HONESTY STATEMENT & LIMITATION ---
+
+Scope:
+This work is a reference-implementation demonstration on open and proxy data. It is
+not a validated carbon measurement and does not issue credits. It has no field
+validation, no physical soil cores, and no ground-truth tree inventory. Species,
+DBH, height, and tree count are assumed inputs; only the equation forms and
+coefficients are drawn from cited sources.
+
+Limitation 1 — AGB equation:
+The areca allometric equation (Prayogo et al. 2018) was derived in Papua, Indonesia 
+from a small destructive sample and is not India-specific. An Indian areca equation
+(e.g. Bhat et al., Environmental Challenges, 2021) is preferred if retrievable, with
+Prayogo cited as supporting evidence.
+
+Limitation 2 — BGB ratio:
+No areca- or palm-specific root-to-shoot ratio was found in the literature searched.
+Because palms have fibrous, adventitious roots unlike trees, the tree-derived default
+(0.24, IPCC 2006) is used only as a provisional proxy and is treated as a key stated
+uncertainty.
+
+Limitation 3 — SOC change:
+The SOC-change values are illustrative only. They come from a conservative
+literature-based rate, not a field-calibrated model, and must be replaced by a
+calibrated soil model before any credit issuance.
+
+
+

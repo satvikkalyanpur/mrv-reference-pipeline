@@ -1,0 +1,15 @@
+Plot area: 1.27 ha
+Mean NDVI: 0.873
+Annual AGB + BGB increment: 0.084 tCO2e
+Baseline SOC concentration (0-5cm): 63.5 g/kg (6.35%)
+NOTE: concentration, not stock; stock needs bulk density x depth (field data)
+Annual rainfall: 1879 mm
+Mean temp: 21.6 C
+Credit breakdown: gross = 1.477754983925038 | after-leakage = 1.3743121350502852
+| issued = 1.0994497080402281 | buffer = 0.27486242701005703
+Sensitivity:
+30%->issued 0.962 tCO2e
+25%->issued 1.031 tCO2e
+20%->issued 1.099 tCO2e
+15%->issued 1.168 tCO2e
+10%->issued 1.237 tCO2e
