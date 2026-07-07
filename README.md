@@ -49,12 +49,6 @@ is drawn from smooth satellite/reanalysis inputs.
 - `README.md` — this file.
 - `LICENSE` — see below.
 
-## How to run
-
-1. Open `mrv_poc.ipynb` in [Google Colab](https://colab.research.google.com/).
-2. Register a free (noncommercial) Google Earth Engine project and paste your project ID
-   into Cell 2.
-3. Run all cells top to bottom (Runtime → Run all).
 
 No local installation or data download is required; all data is streamed from Earth Engine.
 
