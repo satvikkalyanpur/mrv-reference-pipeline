@@ -31,7 +31,6 @@ For an identical 1.27 ha parcel, issued credits range from **0.51 to 0.98 tCO₂
 - `provenance.txt` — every data source, equation, coefficient, citation, and parameter value.
 - `results-log.txt` — the recorded output numbers.
 - `explanation.txt` — plain-language guide to what each output means and what is and is not claimed.
-- `figure_sensitivity.png` — the sensitivity (tornado) figure.
 - `README.md` — this file.
 - `LICENSE` — MIT.
 
