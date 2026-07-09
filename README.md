@@ -45,9 +45,9 @@ No local installation or data download is required; all data is streamed from Ea
 
 ## Figures
 
-![Sensitivity of issued credits to methodology choices](<img width="1917" height="862" alt="site_map" src="https://github.com/user-attachments/assets/5c0ad0c9-caa3-4bb0-a57c-a6cf77709040" />)
+<img width="1917" height="862" alt="site_map" src="https://github.com/user-attachments/assets/225cbf1a-b2bd-426f-a87a-22d54d7124b3" />
 
-![Study site — true colour and NDVI](<img width="1085" height="602" alt="figure_sensitivity" src="https://github.com/user-attachments/assets/b176a943-6b7c-4b21-b745-58d01e2993e3" />)
+<img width="1085" height="602" alt="figure_sensitivity" src="https://github.com/user-attachments/assets/f673aa2c-1088-462a-846b-089c1bf16d4b" />
 
 
 ## Data sources (all free / open)
