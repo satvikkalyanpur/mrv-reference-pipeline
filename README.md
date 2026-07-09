@@ -43,6 +43,13 @@ For an identical 1.27 ha parcel, issued credits range from **0.51 to 0.98 tCO₂
 
 No local installation or data download is required; all data is streamed from Earth Engine.
 
+## Figures
+
+![Sensitivity of issued credits to methodology choices](<img width="1917" height="862" alt="site_map" src="https://github.com/user-attachments/assets/5c0ad0c9-caa3-4bb0-a57c-a6cf77709040" />)
+
+![Study site — true colour and NDVI](<img width="1085" height="602" alt="figure_sensitivity" src="https://github.com/user-attachments/assets/b176a943-6b7c-4b21-b745-58d01e2993e3" />)
+
+
 ## Data sources (all free / open)
 
 Sentinel-2 (ESA Copernicus). Methodology and parameter sources are listed in full in `provenance.txt`.
