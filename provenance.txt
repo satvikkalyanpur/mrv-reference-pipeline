@@ -1,0 +1,103 @@
+========================================================
+MRV SENSITIVITY ANALYSIS — PROVENANCE RECORD
+Methodology basis: VM0047 v1.1 (Verra ARR)
+========================================================
+
+--- SITE ---
+Study system: Arecanut agroforestry parcel, Chikkamagaluru (Malnad),
+  Karnataka, India. Area ~1.27 ha.
+Species composition is assumed from regional cropping patterns; it is not
+derivable from 10 m optical imagery and is established by field inventory in
+operational deployment.
+Polygon coordinates (GeoJSON [lng, lat], closed ring):
+  [75.7583337, 13.4004903], [75.7581502, 13.3995258],
+  [75.7593232, 13.3995341], [75.7594960, 13.4003524],
+  [75.7583337, 13.4004903]
+
+--- METHODOLOGY FRAMEWORK ---
+Basis: VM0047 Afforestation, Reforestation and Revegetation, v1.1
+  Status: active since 14 May 2025 (Verra VCS).
+  Succeeds CDM AR-ACM0003 (effective 28 Sep 2023), cited as lineage.
+  Pools: above-ground and below-ground biomass; deadwood, litter, and soil
+    organic carbon are optional. Soil organic carbon is excluded here, as
+    permitted by VM0047; biomass is restricted to live woody biomass.
+  Uncertainty: minimum 10% deduction, expressed at the 90% confidence interval
+    as a percentage of the estimate; a higher deduction may be selected.
+  Permanence: buffer pool via the VCS AFOLU Non-Permanence Risk Tool
+    (risk-rated).
+  Verifier: Validation and Verification Body (VVB).
+India CCTS (offset mechanism): agroforestry is a Phase-1 offset sector
+  (Detailed Procedure, 27 March 2025), but the agroforestry methodology is not
+  yet approved and no numeric quantification rules (uncertainty deduction,
+  buffer, pool treatment) are published. CCTS is therefore treated
+  qualitatively and is not used to compute credits. Verifier: Accredited
+  Carbon Verification Agency (ACVA).
+
+--- SATELLITE DATA ---
+Sentinel-2 surface reflectance (NDVI, vegetation confirmation):
+  Asset: COPERNICUS/S2_SR_HARMONIZED
+  Window: 2024-11-01 to 2025-03-31 | cloud cover < 20% | 10 m resolution
+  Provider: ESA Copernicus. Role: confirms live canopy; not a biomass predictor.
+  Measured mean NDVI: 0.873.
+
+--- ABOVE-GROUND BIOMASS EQUATION (Areca catechu) ---
+Combined form (best fit): AGB(kg) = 0.03883 * H * D^1.2 ; R^2 = 0.96
+  H = palm height (m); D = stem diameter (cm)
+Alternative forms (same source):
+  Height-only:   AGB = 0.816 * H^1.42 ; R^2 = 0.89
+  Diameter-only: AGB = 0.0689 * D^2.59 ; R^2 = 0.74
+Source: Prayogo, C. et al. (2018). "Allometric Equation for Pinang
+  (Areca catechu) Biomass and C Stocks." AGRIVITA Journal of Agricultural
+  Science, 40(3): 381-389. DOI: 10.17503/agrivita.v40i3.1124
+Note: the equation is derived from a destructive sample in Indonesia; an
+  India-specific arecanut equation would be preferable where available.
+  Inputs are assumed to fall within the equation's calibration range.
+
+--- CARBON FRACTION ---
+Values compared: 0.47 and 0.50
+Source: 0.47 = IPCC 2006 Guidelines Vol.4 (AFOLU) default; 0.50 = palm-carbon
+  literature.
+
+--- ROOT-TO-SHOOT RATIO (BGB = AGB * RSR) ---
+Values compared: 0.15 and 0.24
+Source: 0.15 = Pragasan (2025), arecanut carbon stock assessment, Coimbatore;
+  0.24 = IPCC 2006 Guidelines Vol.4 tropical default (tree-derived).
+Note: a palm-specific root-to-shoot ratio is not well established; palm root
+  architecture differs from trees, so this parameter carries genuine
+  uncertainty, which this analysis quantifies.
+
+--- UNCERTAINTY DEDUCTION ---
+Values compared: 10%, 15%, 20%
+Source: VM0047 v1.1 requires a minimum 10% uncertainty deduction (90%
+  confidence interval); a higher deduction may be applied.
+
+--- PERMANENCE BUFFER ---
+Values compared: 10%, 20%, 40%
+Source: VCS AFOLU Non-Permanence Risk Tool (risk-rated); representative low,
+  medium, and high values used.
+
+--- CO2e CONVERSION ---
+Value: 3.667 (= 44/12), the CO2-to-carbon molecular-weight ratio.
+
+--- STAND PARAMETERS (assumed; measured in operational deployment) ---
+~1370 palms/ha (~2.7 m x 2.7 m arecanut spacing);
+D = 12 cm (stem diameter, approximately constant for palms);
+H = 10.0 to 10.4 m (height growth ~0.4 m/yr).
+Held fixed across the sensitivity analysis, which varies methodology choices
+only.
+
+--- INTEGRITY / AUDIT ---
+SHA-256 hash chain over key results (each record incorporates the previous
+record's hash), providing tamper-evidence without a distributed ledger.
+
+--- FINAL RESULTS ---
+Baseline issued: 0.817 tCO2e/yr (CF=0.47, RSR=0.24, uncertainty=10%, buffer=20%)
+Sensitivity (36 combinations): 0.505 - 0.978 tCO2e/yr | spread 1.94x | CV 17.9%
+
+--- SCOPE STATEMENT ---
+This is a reproducible reference-implementation demonstration on open data.
+It is not a field-validated measurement: there are no soil cores and no
+ground-truth tree inventory. Tree dimensions, count, and species are assumed
+inputs; equation forms, coefficients, and methodology rules are cited. Soil
+organic carbon is excluded under VM0047's optional-pool provision. India's
+CCTS is treated as context and is not used to compute credits.

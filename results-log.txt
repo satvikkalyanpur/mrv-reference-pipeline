@@ -1,0 +1,53 @@
+========================================================
+MRV SENSITIVITY ANALYSIS — RESULTS LOG
+Methodology basis: VM0047 v1.1 (Verra ARR)
+========================================================
+
+--- SITE ---
+Parcel area:            1.27 ha
+Location:               Chikkamagaluru (Malnad), Karnataka, India
+System:                 Arecanut agroforestry (assumed; see limitations)
+Mean NDVI:              0.873   (confirms dense live canopy)
+
+--- BASELINE ESTIMATE (single parameter set) ---
+Parameters:             CF=0.47, RSR=0.24, uncertainty=10%, buffer=20%
+Baseline issued:        0.817 tCO2e/yr
+
+--- SENSITIVITY ANALYSIS ---
+Combinations evaluated: 36
+Issued credits range:   0.505 - 0.978 tCO2e/yr
+Spread factor:          1.94x
+Coefficient of variation (CV): 17.9%
+
+Pools:                  AGB + BGB (SOC excluded — optional under VM0047)
+Parameters varied:      carbon fraction (0.47 / 0.50)
+                        root-to-shoot ratio (0.15 / 0.24)
+                        uncertainty deduction (10% / 15% / 20%)
+                        permanence buffer (10% / 20% / 40%)
+
+--- HEADLINE FINDING ---
+For an identical 1.27 ha arecanut agroforestry parcel, issued credits vary by
+a factor of 1.94 (0.51-0.98 tCO2e/yr) depending solely on defensible
+methodology choices — parameters that India's CCTS does not yet specify for
+agroforestry.
+
+--- METHODOLOGY CONTEXT ---
+VM0047 (ARR):  active v1.1 (May 2025); AGB+BGB pools, SOC optional; minimum
+               10% uncertainty deduction (90% CI); buffer pool via VCS AFOLU
+               Non-Permanence Risk Tool; verifier = VVB.
+India CCTS:    agroforestry is a Phase-1 offset sector, but the methodology is
+               not yet approved and no numeric uncertainty deduction, buffer,
+               or pool rules are published; verifier = ACVA.
+
+--- INTEGRITY ---
+SHA-256 hash chain over key results (NDVI, minimum and maximum issued credits);
+tamper-evident without a distributed ledger.
+
+--- STATUS OF INPUTS ---
+Assumed (measured in operational deployment): tree diameter, height, count,
+  species composition.
+Cited: allometric equation, carbon fraction, root-to-shoot ratio, VM0047 rules.
+Scope: reproducible reference-implementation demonstration on open data; not a
+  field-validated measurement.
+
+
