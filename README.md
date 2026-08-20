@@ -51,9 +51,10 @@ Stand parameters (tree diameter, height, count) are held fixed — they are meas
 
 ## Figures
 
-![Study site — true colour, NDVI, and boundary](site_map.png)
+<img width="1085" height="602" alt="figure_sensitivity" src="https://github.com/user-attachments/assets/de603828-7eeb-49d3-82c4-08b23467278e" />
 
-![Sensitivity of issued credits to methodology choices](figure_sensitivity.png)
+<img width="1917" height="862" alt="site_map" src="https://github.com/user-attachments/assets/6008d006-e921-4577-b135-bb06badc159c" />
+
 
 ## How to run
 
